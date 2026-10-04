@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_real_estate_root" name="Real Estate" sequence="10"
+              groups="base.group_user">
+        <menuitem id="menu_real_estate_properties" name="Properties"
+                  action="action_real_estate" sequence="10"/>
+    </menuitem>
+</odoo>
