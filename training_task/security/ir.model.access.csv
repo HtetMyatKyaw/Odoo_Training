@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_training_task_user,training.task user,model_training_task,base.group_user,1,1,1,1
+access_quick_task_wizard_user,training.task.quick.wizard user,model_training_task_quick_wizard,base.group_user,1,1,1,1

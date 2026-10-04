@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View -->
+    <record id="view_training_task_list" model="ir.ui.view">
+        <field name="name">training.task.list</field>
+        <field name="model">training.task</field>
+        <field name="arch" type="xml">
+            <list string="Training Tasks">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="deadline"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_training_task_form" model="ir.ui.view">
+        <field name="name">training.task.form</field>
+        <field name="model">training.task</field>
+        <field name="arch" type="xml">
+            <form string="Training Task">
+                <header>
+                    <button name="action_start" string="Start Task" type="object"
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_done" string="Mark as Done" type="object"
+                            class="oe_highlight" invisible="state != 'in_progress'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="deadline"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description" placeholder="Describe this task..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Window Action -->
+    <record id="action_training_task" model="ir.actions.act_window">
+        <field name="name">Tasks</field>
+        <field name="res_model">training.task</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- A transient wizard opens in a popup and creates a regular task. -->
+    <record id="view_quick_task_wizard_form" model="ir.ui.view">
+        <field name="name">training.task.quick.wizard.form</field>
+        <field name="model">training.task.quick.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Quick Task">
+                <group>
+                    <field name="name" placeholder="What needs to be done?"/>
+                    <field name="description" placeholder="Add a short description..."/>
+                </group>
+                <footer>
+                    <button name="action_create_task" string="Create Task"
+                            type="object" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_quick_task_wizard" model="ir.actions.act_window">
+        <field name="name">Quick Task</field>
+        <field name="res_model">training.task.quick.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_quick_task_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="menu_training_root" name="Training Tasks" sequence="10"/>
+    <menuitem id="menu_training_task" name="Tasks"
+              parent="menu_training_root" action="action_training_task" sequence="10"/>
+    <menuitem id="menu_quick_task_wizard" name="Quick Task"
+              parent="menu_training_root" action="action_quick_task_wizard" sequence="20"/>
+</odoo>
