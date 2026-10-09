@@ -1,0 +1,7 @@
+.o_field_statusbar.hmk_property_statusbar > .o_statusbar_status
+    > .o_arrow_button.o_arrow_button_current[data-value="sold"]:disabled {
+    --o-statusbar-background-active: #198754;
+    --o-statusbar-border-active: #146c43;
+    --o-statusbar-background-hover: #198754;
+    color: #ffffff;
+}
