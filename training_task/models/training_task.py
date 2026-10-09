@@ -8,6 +8,18 @@ class TrainingTask(models.Model):
 
     name = fields.Char(string="Task", required=True)
     description = fields.Text(string="Description")
+    rules = fields.Html(
+        string="Hostel Rules",
+        sanitize=True,
+        default="""
+            <p><strong>အဆောင်စည်းကမ်းများ</strong></p>
+            <ul>
+                <li>အခန်းကို သန့်ရှင်းစွာထားရမည်။</li>
+                <li>ည ၁၀ နာရီမတိုင်မီ ပြန်ရောက်ရမည်။</li>
+                <li>အဆောင်ပိုင်ပစ္စည်းများကို ထိန်းသိမ်းရမည်။</li>
+            </ul>
+        """,
+    )
     deadline = fields.Date(string="Deadline")
 
     user_id = fields.Many2one(

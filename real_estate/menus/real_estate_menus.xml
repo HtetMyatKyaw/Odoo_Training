@@ -4,5 +4,12 @@
               groups="base.group_user">
         <menuitem id="menu_real_estate_properties" name="Properties"
                   action="action_real_estate" sequence="10"/>
+        <menuitem id="menu_real_estate_setting" name="Settings" sequence="20">
+            <menuitem id="menu_real_estate_properties_type" name="Property Type"
+                      action="action_real_estate_properties_type" sequence="25"/>
+            <menuitem id="menu_real_estate_properties_tag" name="Tag"
+                      action="action_real_estate_properties_tag" sequence="30"/>
+        </menuitem>
     </menuitem>
+
 </odoo>
