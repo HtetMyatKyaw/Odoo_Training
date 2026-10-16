@@ -26,6 +26,7 @@ class RealEstatePropertiesOffer(models.Model):
         'real.estate',
         string='Property',
         required=True,
+        ondelete='cascade',
     )
 
     @api.model_create_multi

@@ -14,6 +14,7 @@
     },
     # data files always loaded at installation
     'data': [
+        'security/real_estate_security.xml',
         'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
         'views/real_estate_view.xml',

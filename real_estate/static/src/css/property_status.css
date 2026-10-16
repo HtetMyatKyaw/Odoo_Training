@@ -1,7 +1,39 @@
 .o_field_statusbar.hmk_property_statusbar > .o_statusbar_status
+    > .o_arrow_button.o_arrow_button_current[data-value="new"]:disabled {
+    --o-statusbar-background-active: #0d6efd;
+    --o-statusbar-border-active: #0a58ca;
+    --o-statusbar-background-hover: #0d6efd;
+    color: #ffffff;
+}
+
+.o_field_statusbar.hmk_property_statusbar > .o_statusbar_status
+    > .o_arrow_button.o_arrow_button_current[data-value="offer_received"]:disabled {
+    --o-statusbar-background-active: #ffc107;
+    --o-statusbar-border-active: #cc9a06;
+    --o-statusbar-background-hover: #ffc107;
+    color: #212529;
+}
+
+.o_field_statusbar.hmk_property_statusbar > .o_statusbar_status
+    > .o_arrow_button.o_arrow_button_current[data-value="offer_accepted"]:disabled {
+    --o-statusbar-background-active: #714b67;
+    --o-statusbar-border-active: #593b51;
+    --o-statusbar-background-hover: #714b67;
+    color: #ffffff;
+}
+
+.o_field_statusbar.hmk_property_statusbar > .o_statusbar_status
     > .o_arrow_button.o_arrow_button_current[data-value="sold"]:disabled {
     --o-statusbar-background-active: #198754;
     --o-statusbar-border-active: #146c43;
     --o-statusbar-background-hover: #198754;
+    color: #ffffff;
+}
+
+.o_field_statusbar.hmk_property_statusbar > .o_statusbar_status
+    > .o_arrow_button.o_arrow_button_current[data-value="cancel"]:disabled {
+    --o-statusbar-background-active: #dc3545;
+    --o-statusbar-border-active: #b02a37;
+    --o-statusbar-background-hover: #dc3545;
     color: #ffffff;
 }

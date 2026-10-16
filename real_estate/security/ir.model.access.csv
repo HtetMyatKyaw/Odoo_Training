@@ -1,5 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_real_estate_user,real.estate user,model_real_estate,base.group_user,1,1,1,1
-access_real_estate_properties_type_user,real.estate.properties.type user,model_real_estate_properties_type,base.group_user,1,1,1,1
-access_real_estate_properties_tag_user,real.estate.properties.tag user,model_real_estate_properties_tag,base.group_user,1,1,1,1
-access_real_estate_offer_user,real.estate.properties.offer user,model_real_estate_properties_offer,base.group_user,1,1,1,1
+access_real_estate_user,real.estate user,model_real_estate,real_estate.group_real_estate_user,1,1,1,0
+access_real_estate_properties_type_user,real.estate.properties.type user,model_real_estate_properties_type,real_estate.group_real_estate_user,1,1,1,0
+access_real_estate_properties_tag_user,real.estate.properties.tag user,model_real_estate_properties_tag,real_estate.group_real_estate_user,1,1,1,0
+access_real_estate_offer_user,real.estate.properties.offer user,model_real_estate_properties_offer,real_estate.group_real_estate_user,1,1,1,0
+access_real_estate_admin,real.estate admin,model_real_estate,real_estate.group_real_estate_admin,1,1,1,1
+access_real_estate_properties_type_admin,real.estate.properties.type admin,model_real_estate_properties_type,real_estate.group_real_estate_admin,1,1,1,1
+access_real_estate_properties_tag_admin,real.estate.properties.tag admin,model_real_estate_properties_tag,real_estate.group_real_estate_admin,1,1,1,1
+access_real_estate_offer_admin,real.estate.properties.offer admin,model_real_estate_properties_offer,real_estate.group_real_estate_admin,1,1,1,1

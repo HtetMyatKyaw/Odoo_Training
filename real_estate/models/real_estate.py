@@ -6,8 +6,8 @@ class RealEstate(models.Model):
     _name = 'real.estate'
     _description = 'RealEstate'
 
-
     name = fields.Char(required=True)
+    active = fields.Boolean(default=True)
     property_reference = fields.Char(
         string='Properties ID',
         readonly=True,
@@ -115,6 +115,25 @@ class RealEstate(models.Model):
                 raise ValidationError(self.env._(
                     'Expected price must be greater than zero.'
                 ))
+
+    def action_edit(self):
+        self.ensure_one()
+        self.check_access('write')
+        if self.status in ('sold', 'cancel'):
+            raise UserError(self.env._('Sold or cancelled properties cannot be edited.'))
+        return {
+            'type': 'ir.actions.act_window',
+            'name': self.env._('Property'),
+            'res_model': self._name,
+            'res_id': self.id,
+            'view_mode': 'form',
+            'views': [(self.env.ref('real_estate.view_real_estate_form').id, 'form')],
+            'target': 'current',
+            'context': dict(
+                self.env.context,
+                real_estate_edit_mode=not self.env.context.get('real_estate_edit_mode', False),
+            ),
+        }
 
     def action_sold(self):
         if any(record.status == 'cancel' for record in self):
